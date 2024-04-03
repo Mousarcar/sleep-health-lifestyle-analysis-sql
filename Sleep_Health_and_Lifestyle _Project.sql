@@ -85,8 +85,7 @@ order by avg_daily_steps desc ;
 select avg(`Heart Rate`) avg_heart_rate from sleep_health_and_lifestyle_dataset
 where  `Sleep Disorder` not in ('None')  and `BMI Category` = 'Overweight';
 
--- 20) How many participants have a  sleep_quality equal to 'Good' and a Heart Rate greater than 
--- the average Heart Rate for participants with a sleep_quality equal to 'Good'?
+-- 20) How many participants have a  sleep_quality equal to 'Good' and a Heart Rate greater than the average Heart Rate for participants with a sleep_quality equal to 'Good'?
 select count(*) from sleep_health_and_lifestyle_dataset
 where sleep_quality = 'Good' and `Heart Rate` > (select avg(`Heart Rate`)from sleep_health_and_lifestyle_dataset where sleep_quality = 'Good') 
 
